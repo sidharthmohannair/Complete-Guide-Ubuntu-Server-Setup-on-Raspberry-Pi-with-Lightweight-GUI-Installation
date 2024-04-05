@@ -22,25 +22,28 @@ This guide will walk you through the steps to install Ubuntu Server on your Rasp
    - Determine the Raspberry Pi's IP address on the local network.
      - You can find it on your router's dashboard or by running `hostname -I` on the Raspberry Pi if a hostname is set.
    - Use an SSH client to connect to your Raspberry Pi remotely.
-     ```
+     ```bash
      ssh <username>@<Raspberry Pi's IP address>
      ```
      Replace `<username>` with your username and `<Raspberry Pi's IP address>` with its IP address.
    
 5. **Activate SSH (if not enabled)**
    - If SSH is not already enabled, run the following commands on your Raspberry Pi:
-     ```
+     ```bash
      sudo systemctl enable ssh
      sudo systemctl start ssh
      ```
 
 6. **Install a Lightweight Desktop Environment (Optional)**
    - If you want a graphical interface, you can install a lightweight desktop environment like Lubuntu.
-     ```
+     ```bash
      sudo apt update
      sudo apt install lubuntu-desktop
      ```
    - Reboot your Raspberry Pi for the changes to take effect.
+       ```bash
+       sudo reboot
+       ```
 
 ## Troubleshooting
 - **Network Connection Issues**
@@ -57,11 +60,11 @@ This guide will walk you through the steps to install Ubuntu Server on your Rasp
 - **Fix Wi-Fi Configuration**
   - If your Raspberry Pi is having trouble connecting to Wi-Fi, follow these steps:
     1. Open the network configuration file:
-       ```
+       ```bash
        sudo nano /etc/netplan/50-cloud-init.yaml
        ```
     2. Edit the file to correct the Wi-Fi configuration. Ensure proper indentation for the .yaml file format.
-       ```
+       ```bash
        wifis:
          wlan0:
            dhcp4: true
@@ -72,11 +75,11 @@ This guide will walk you through the steps to install Ubuntu Server on your Rasp
        ```
     3. Save and exit the file with `Ctrl + S` and `Ctrl + X`.
     4. Apply the changes:
-       ```
+       ```bash
        sudo netplan apply
        ```
     5. Reboot your Raspberry Pi:
-       ```
+       ```bash
        sudo reboot
        ```
     6. After rebooting, your Raspberry Pi should be connected to the Wi-Fi network.
