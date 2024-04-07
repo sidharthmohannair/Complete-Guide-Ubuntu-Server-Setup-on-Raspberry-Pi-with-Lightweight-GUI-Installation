@@ -36,14 +36,36 @@ This guide will walk you through the steps to install Ubuntu Server on your Rasp
 
 6. **Install a Lightweight Desktop Environment (Optional)**
    - If you want a graphical interface, you can install a lightweight desktop environment like Lubuntu.
-     ```bash
-     sudo apt update
-     sudo apt install lubuntu-desktop
-     ```
-   - Reboot your Raspberry Pi for the changes to take effect.
-       ```bash
-       sudo reboot
-       ```
+   - Access to the terminal via SSH (Recommended) or directly connected keyboard and monitor
+
+     
+   1. **Install LightDM** 
+        ```bash
+        sudo apt update
+        sudo apt install lightdm
+        ```
+   2. **Enable LightDM**
+        ```bash
+        sudo systemctl enable lightdm
+        ```
+   3. **Install Lubuntu Desktop Environment**
+         ```bash
+         sudo apt update
+         sudo apt install lubuntu-desktop
+         ```
+   4. **Reboot Raspberry Pi**
+         ```bash
+         sudo reboot
+         ```
+   - **Accessing the Desktop Environment**
+     
+      After rebooting your Raspberry Pi, LightDM will manage the graphical login screen. You can log in with your username and password, and you'll be presented with the Lubuntu desktop environment.
+   
+   - **Additional Notes**
+     
+      LightDM provides the graphical login interface.
+      Lubuntu is a lightweight desktop environment based on LXQt.
+      Make sure to perform these steps on a Raspberry Pi with sufficient resources to run a graphical environment.
 
 ## Troubleshooting
 - **Network Connection Issues**
